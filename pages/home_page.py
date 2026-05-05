@@ -18,6 +18,9 @@ class HomePage(BasePage):
     APPLIANCES = (By.CSS_SELECTOR, '[data-testid="category-title-appliances"]')
     GADGETS = (By.CSS_SELECTOR, '[data-testid="category-title-gadgets"]')
     PC_LAPTOPS = (By.CSS_SELECTOR, '[data-testid="category-title-laptop"]')
+    LAPTOP_DISCOUNT = (By.CSS_SELECTOR, '[data-testid="offer-shop-now-1"]')
+    WATCH_DISCOUNT = (By.CSS_SELECTOR, '[data-testid="offer-shop-now-2"]')
+    CATEGORY_PRODUCT_SMARTPHONES = (By.CSS_SELECTOR, '[data-testid="offer-shop-now-2"]')
 
     def load(self):
         self.open(self.URL)
@@ -86,8 +89,17 @@ class HomePage(BasePage):
             EC.element_to_be_clickable(self.PC_LAPTOPS)
         ).click()
 
-    def click_
-        
-    
+    def click_laptop_discount(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.LAPTOP_DISCOUNT)
+        ).click()
+
+    def click_watch_discount(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.WATCH_DISCOUNT)
+        ).click()
+
 
     
+
+class Footer(BasePage):

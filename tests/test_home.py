@@ -72,3 +72,16 @@ def test_pc_laptops(driver):
     home.click_pc_and_laptops()
     assert "products" in driver.current_url.lower()
 
+def test_laptop_discount(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_laptop_discount()
+    assert "products" in driver.current_url.lower()
+
+def test_watch_discount(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_watch_discount()
+    assert "products" in driver.current_url.lower()
+
+
