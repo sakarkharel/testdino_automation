@@ -14,7 +14,10 @@ class HomePage(BasePage):
     HEADER_ICON = (By.CSS_SELECTOR, '[data-testid="header-user-icon"]')
     CART_ICON = (By.CSS_SELECTOR, '[data-testid="header-cart-icon"]')
     CART_DRAWER = (By.CSS_SELECTOR, '[data-testid="cart-drawer"]')
-
+    AUDIO_CAMERA = (By.CSS_SELECTOR, '[data-testid="category-title-camera"]')
+    APPLIANCES = (By.CSS_SELECTOR, '[data-testid="category-title-appliances"]')
+    GADGETS = (By.CSS_SELECTOR, '[data-testid="category-title-gadgets"]')
+    PC_LAPTOPS = (By.CSS_SELECTOR, '[data-testid="category-title-laptop"]')
 
     def load(self):
         self.open(self.URL)
@@ -58,6 +61,33 @@ class HomePage(BasePage):
             EC.visibility_of_element_located(self.CART_DRAWER)
         )
     
+    def click_shop_button(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.SHOP_NOW)
+        ).click()
+
+    def click_audio_and_camera(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.AUDIO_CAMERA)
+        ).click()
+
+    def click_appliances(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.APPLIANCES)
+        ).click()
+    
+    def click_gadgets(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.GADGETS)
+        ).click()
+
+    def click_pc_and_laptops(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.PC_LAPTOPS)
+        ).click()
+
+    def click_
         
+    
 
     

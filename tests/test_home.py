@@ -21,7 +21,7 @@ def test_nav_to_all_products(driver):
     home=HomePage(driver)
     home.load()
     home.click_nav_bar_all_products()
-    assert "product" in driver.current_url.lower()
+    assert "products" in driver.current_url.lower()
 
 def test_nav_to_wishlist(driver):
     home=HomePage(driver)
@@ -42,3 +42,33 @@ def test_nav_to_cart(driver):
     assert WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located(home.CART_DRAWER)
     )
+def test_shop_now(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_shop_button()
+    assert "products" in driver.current_url.lower()
+
+def test_audio_camera(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_audio_and_camera()
+    assert "products" in driver.current_url.lower()
+
+def test_appliances(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_appliances()
+    assert "products" in driver.current_url.lower()
+
+def test_gadgets(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_gadgets()
+    assert "products" in driver.current_url.lower()
+
+def test_pc_laptops(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_pc_and_laptops()
+    assert "products" in driver.current_url.lower()
+
