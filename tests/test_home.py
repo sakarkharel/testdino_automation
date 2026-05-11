@@ -108,4 +108,38 @@ def test_github_link(driver):
     driver.switch_to.window(driver.window_handles[1])
     assert "github.com" in driver.current_url
 
+def test_shipping_policy_link(driver):
+    home=HomePage(driver)
+    home.load()
+    footer = Footer(driver)
+    footer.click_shipping_policy()
+    assert "shipping-policy" in driver.current_url
+
+def test_return_policy_link(driver):
+    home=HomePage(driver)
+    home.load()
+    footer = Footer(driver)
+    footer.click_return_policy()
+    assert "return-policy" in driver.current_url
+
+def test_cancellation_policy_link(driver):
+    home=HomePage(driver)
+    home.load()
+    footer = Footer(driver)
+    footer.click_cancel_policy()
+    assert "cancellation-policy" in driver.current_url
+
+def test_faq_link(driver):
+    home=HomePage(driver)
+    home.load()
+    footer = Footer(driver)
+    footer.click_faq()
+    assert "faq" in driver.current_url
+
+
+
+
+
+
+
 

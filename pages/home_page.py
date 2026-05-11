@@ -105,6 +105,10 @@ class Footer(BasePage):
     TWITTER_LINK = (By.CSS_SELECTOR, '[data-testid="footer-twitter-icon"]')
     LINKEDIN_LINK = (By.CSS_SELECTOR, '[data-testid="footer-linkedin-icon"]')
     GITHUB_LINK = (By.CSS_SELECTOR, '[data-testid="footer-github-icon"]')
+    SHIPPING_POLICY = (By.CSS_SELECTOR, '[data-testid="footer-policy-shipping-policy"]')
+    RETURN_POLICY = (By.CSS_SELECTOR, '[data-testid="footer-policy-return-policy"]')
+    CANCEL_POLICY = (By.CSS_SELECTOR, '[data-testid="footer-policy-cancellation"]')
+    FAQ = (By.CSS_SELECTOR, '[data-testid="footer-policy-faq"]')
     
     def click_social_twitter(self):
         WebDriverWait(self.driver, 10).until(
@@ -121,3 +125,24 @@ class Footer(BasePage):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(self.GITHUB_LINK)
         ).click()
+
+    def click_shipping_policy(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.SHIPPING_POLICY)
+        ).click()
+
+    def click_return_policy(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.RETURN_POLICY)
+        ).click()
+
+    def click_cancel_policy(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.CANCEL_POLICY)
+        ).click()
+
+    def click_faq(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.FAQ)
+        ).click()
+    
