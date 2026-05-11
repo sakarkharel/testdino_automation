@@ -109,6 +109,12 @@ class Footer(BasePage):
     RETURN_POLICY = (By.CSS_SELECTOR, '[data-testid="footer-policy-return-policy"]')
     CANCEL_POLICY = (By.CSS_SELECTOR, '[data-testid="footer-policy-cancellation"]')
     FAQ = (By.CSS_SELECTOR, '[data-testid="footer-policy-faq"]')
+    HOME = (By.CSS_SELECTOR, '[data-testid="footer-home"]')
+    TESTDINO_LOGO = (By.CSS_SELECTOR, '[data-testid="footer-logo"]')
+    ABOUT_US = (By.CSS_SELECTOR, '[data-testid="footer-about-us"]')
+    CONTACT_US = (By.CSS_SELECTOR, '[data-testid="footer-contact-us"]')
+    ALL_PRODUCTS = (By.CSS_SELECTOR, '[data-testid="footer-all-products"]')
+
     
     def click_social_twitter(self):
         WebDriverWait(self.driver, 10).until(
@@ -145,4 +151,34 @@ class Footer(BasePage):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(self.FAQ)
         ).click()
+
+    def click_testdino_logo(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.TESTDINO_LOGO)
+        ).click()
+
+    def click_home(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.HOME)
+        ).click()
+
+
+    def click_about_us(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.ABOUT_US)
+        ).click()
+
+    def click_contact_us(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.CONTACT_US)
+        ).click()
+
+    def click_all_products(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.ALL_PRODUCTS)
+        ).click()
+
+    
+
+
     

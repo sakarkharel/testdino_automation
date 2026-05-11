@@ -136,6 +136,47 @@ def test_faq_link(driver):
     footer.click_faq()
     assert "faq" in driver.current_url
 
+def testdino_logo(driver):
+    home=HomePage(driver)
+    home.load()
+    footer = Footer(driver)
+    footer.click_testdino_logo()
+    assert "storedemo.testdino.com" in driver.current_url
+
+def test_home(driver):
+    home=HomePage(driver)
+    home.load()
+    footer = Footer(driver)
+    footer.click_home()
+    assert "storedemo.testdino.com" in driver.current_url
+
+def test_about_us(driver):
+    home=HomePage(driver)
+    home.load()
+    footer = Footer(driver)
+    footer.click_about_us()
+    assert "about-us" in driver.current_url
+
+def test_contact_us(driver):
+    home=HomePage(driver)
+    home.load()
+    footer = Footer(driver)
+    footer.click_contact_us()
+    assert "contact-us" in driver.current_url
+
+def test_all_products(driver):
+    home=HomePage(driver)
+    home.load()
+    footer = Footer(driver)
+    footer.click_all_products()
+    assert "products" in driver.current_url
+
+
+
+
+
+
+
 
 
 
