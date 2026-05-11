@@ -92,3 +92,20 @@ def test_twitter_link(driver):
     driver.switch_to.window(driver.window_handles[1])
     assert "x.com" in driver.current_url
 
+def test_linkedin_link(driver):
+    home=HomePage(driver)
+    home.load()
+    footer = Footer(driver)
+    footer.click_social_linkedin()
+    driver.switch_to.window(driver.window_handles[1])
+    assert "linkedin.com" in driver.current_url
+
+def test_github_link(driver):
+    home=HomePage(driver)
+    home.load()
+    footer = Footer(driver)
+    footer.click_social_github()
+    driver.switch_to.window(driver.window_handles[1])
+    assert "github.com" in driver.current_url
+
+

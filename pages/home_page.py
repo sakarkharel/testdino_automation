@@ -103,8 +103,21 @@ class HomePage(BasePage):
     
 class Footer(BasePage):
     TWITTER_LINK = (By.CSS_SELECTOR, '[data-testid="footer-twitter-icon"]')
+    LINKEDIN_LINK = (By.CSS_SELECTOR, '[data-testid="footer-linkedin-icon"]')
+    GITHUB_LINK = (By.CSS_SELECTOR, '[data-testid="footer-github-icon"]')
     
     def click_social_twitter(self):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(self.TWITTER_LINK)
+        ).click()
+
+
+    def click_social_linkedin(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.LINKEDIN_LINK)
+        ).click()
+
+    def click_social_github(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.GITHUB_LINK)
         ).click()
