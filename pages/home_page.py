@@ -114,6 +114,8 @@ class Footer(BasePage):
     ABOUT_US = (By.CSS_SELECTOR, '[data-testid="footer-about-us"]')
     CONTACT_US = (By.CSS_SELECTOR, '[data-testid="footer-contact-us"]')
     ALL_PRODUCTS = (By.CSS_SELECTOR, '[data-testid="footer-all-products"]')
+    PRIVACY_POLCIY = (By.CSS_SELECTOR, '[data-testid="footer-privacy-policy"]')
+    TERMS_OF_SERVICE = (By.CSS_SELECTOR, '[data-testid="footer-terms-of-service"]')
 
     
     def click_social_twitter(self):
@@ -178,6 +180,17 @@ class Footer(BasePage):
             EC.element_to_be_clickable(self.ALL_PRODUCTS)
         ).click()
 
+    def click_privacy_policy(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.PRIVACY_POLCIY)
+        ).click()
+
+    def click_terms_of_service(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.TERMS_OF_SERVICE)
+        ).click()
+
+    
     
 
 

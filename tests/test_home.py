@@ -172,6 +172,21 @@ def test_all_products(driver):
     assert "products" in driver.current_url
 
 
+def test_privacy_policy(driver):
+    home=HomePage(driver)
+    home.load()
+    footer = Footer(driver)
+    footer.click_privacy_policy()
+    assert "privacy-policy" in driver.current_url
+
+def test_terms_of_service(driver):
+    home=HomePage(driver)
+    home.load()
+    footer = Footer(driver)
+    footer.click_terms_of_service()
+    assert "terms-of-service" in driver.current_url
+
+
 
 
 
