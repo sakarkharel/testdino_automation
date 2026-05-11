@@ -101,5 +101,10 @@ class HomePage(BasePage):
 
 
     
-
 class Footer(BasePage):
+    TWITTER_LINK = (By.CSS_SELECTOR, '[data-testid="footer-twitter-icon"]')
+    
+    def click_social_twitter(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.TWITTER_LINK)
+        ).click()

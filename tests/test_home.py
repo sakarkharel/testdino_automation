@@ -1,5 +1,5 @@
 import pytest 
-from pages.home_page import HomePage
+from pages.home_page import HomePage, Footer
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time 
@@ -84,4 +84,11 @@ def test_watch_discount(driver):
     home.click_watch_discount()
     assert "products" in driver.current_url.lower()
 
+def test_twitter_link(driver):
+    home=HomePage(driver)
+    home.load()
+    footer = Footer(driver)
+    footer.click_social_twitter()
+    driver.switch_to.window(driver.window_handles[1])
+    assert "x.com" in driver.current_url
 
