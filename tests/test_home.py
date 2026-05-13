@@ -84,12 +84,54 @@ def test_watch_discount(driver):
     home.click_watch_discount()
     assert "products" in driver.current_url.lower()
 
-# scroll ... to be continued
+
 def test_faq_one(driver):
     home=HomePage(driver)
     home.load()
     home.click_faq_question_one()
     assert home.is_faq_answer_one_visible()
+
+def test_faq_two(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_faq_question_two()
+    assert home.is_faq_answer_two_visible()
+
+def test_faq_three(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_faq_question_three()
+    assert home.is_faq_answer_three_visible()
+
+def test_faq_four(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_faq_question_four()
+    assert home.is_faq_answer_four_visible()
+
+def test_faq_five(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_faq_question_five()
+    assert home.is_faq_answer_five_visible()
+
+def test_faq_six(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_faq_question_six()
+    assert home.is_faq_answer_six_visible()
+
+def test_faq_seven(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_faq_question_seven()
+    assert home.is_faq_answer_seven_visible()
+
+def test_faq_eight(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_faq_question_eight()
+    assert home.is_faq_answer_eight_visible()
 
 
 def test_twitter_link(driver):
