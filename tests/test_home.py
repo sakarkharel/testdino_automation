@@ -84,6 +84,14 @@ def test_watch_discount(driver):
     home.click_watch_discount()
     assert "products" in driver.current_url.lower()
 
+# scroll ... to be continued
+def test_faq_one(driver):
+    home=HomePage(driver)
+    home.load()
+    home.click_faq_question_one()
+    assert home.is_faq_answer_one_visible()
+
+
 def test_twitter_link(driver):
     home=HomePage(driver)
     home.load()
@@ -185,6 +193,8 @@ def test_terms_of_service(driver):
     footer = Footer(driver)
     footer.click_terms_of_service()
     assert "terms-of-service" in driver.current_url
+
+
 
 
 

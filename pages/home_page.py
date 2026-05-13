@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
+import time
 
 
 class HomePage(BasePage):
@@ -21,6 +22,8 @@ class HomePage(BasePage):
     LAPTOP_DISCOUNT = (By.CSS_SELECTOR, '[data-testid="offer-shop-now-1"]')
     WATCH_DISCOUNT = (By.CSS_SELECTOR, '[data-testid="offer-shop-now-2"]')
     CATEGORY_PRODUCT_SMARTPHONES = (By.CSS_SELECTOR, '[data-testid="offer-shop-now-2"]')
+    Q_ONE  =   ( By.XPATH, "//summary[normalize-space()='What is TestDino Demo Store?']")
+    ANSWER_ONE = (By.XPATH, "//div[contains(., 'TestDino Demo Store is a fully functional')]")
 
     def load(self):
         self.open(self.URL)
@@ -100,6 +103,25 @@ class HomePage(BasePage):
         ).click()
 
 
+# to be continued 
+    def click_faq_question_one(self):
+        page_height = self.driver.execute_script("return document.body.scrollHeight")
+        scroll_speed=400
+        # scroll_iteration=int(page_height/scroll_speed)
+
+        for _ in range(10):
+            self.driver.execute_script(f"window.scrollBy(0, {scroll_speed});")
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.Q_ONE)
+        ).click()
+
+    
+    def is_faq_answer_one_visible(self):
+        return WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(self.ANSWER_ONE)
+        ).is_displayed()
+
+    
     
 class Footer(BasePage):
     TWITTER_LINK = (By.CSS_SELECTOR, '[data-testid="footer-twitter-icon"]')
