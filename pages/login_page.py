@@ -23,6 +23,12 @@ class LoginPage(BasePage):
             EC.presence_of_element_located(self.SIGNUP_LINK)
         )
     
+
+    def click_on_signup_link(self, timeout=10):
+        WebDriverWait(self.driver, timeout).until(
+            EC.element_to_be_clickable(self.SIGNUP_LINK)
+        ).click()
+
     ## make methods independently 
     ## and then class EndtoEnd in the home_page.py 
 

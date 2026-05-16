@@ -5,6 +5,13 @@ from selenium.webdriver.support import expected_conditions as EC
 import time 
 
 
+def test_signup_link_click(driver):
+    login_page=LoginPage(driver)
+    login_page.load()
+    login_page.click_on_signup_link()
+    assert "signup" in driver.current_url
+
+
 def test_login_with_valid_credentials(driver):
     login_page = LoginPage(driver)
     login_page.load()
@@ -14,6 +21,8 @@ def test_login_with_valid_credentials(driver):
     )
 # because of new webdriver instance/fresh session the assertion wont work here so it is commented out 
     #assert "" in driver.current_url
+
+
 
 
 def test_login_with_empty_mail( driver):
