@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 from pages.home_page import HomePage
+from selenium.webdriver.common.keys import Keys
 import re
 
 
@@ -46,14 +47,57 @@ class LoginPage(BasePage):
         )
         login_btn.click()
 
-    # the test cases i think 
 
     def login_with_valid_credentials(self, email, password):
         self.enter_email(email)
         self.enter_password(password)
         self.click_login_button()
 
+
+    def login_with_empty_email(self,email,password):
+        self.enter_email(email)
+        self.enter_password(password)
+        self.click_login_button()
+
+    def login_with_empty_password(self, email, password):
+        self.enter_email(email)
+        self.enter_password(password)
+        self.click_login_button()
+
+    def login_with_unregistered_email(self, email, password):
+        self.enter_email(email)
+        self.enter_password(password)
+        self.click_login_button()
+
+    def login_with_first_letter_captial(self, email, password):
+        self.enter_email(email)
+        self.enter_password(password)
+        self.click_login_button()
+
+    def login_using_enter_key(self, email, password):
+        self.enter_email(email)
+        
+        password_input = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(self.PASSWORD_INPUT)
+        )
+        password_input.clear()
+        password_input.send_keys(password)
+        password_input.send_keys(Keys.ENTER)
+
+
+    def login_with_leading_trailing_spaces(self, email, password):
+        self.enter_email(email)
+        self.enter_password(password)
+        self.click_login_button()
+
+    def login_after_multiple_failed_attempts(self, email, password):
+        for _ in range(5):
+            self.enter_email(email)
+            self.enter_password(password)
+            self.click_login_button()
+
     
+
     
 
 
