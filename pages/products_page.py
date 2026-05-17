@@ -16,6 +16,19 @@ class ProductPage(BasePage):
     FILTER_BUTTON = (By.CSS_SELECTOR, '[data-testid="all-products-filter-text"]')
     FILTER_CATEGORY = (By.CSS_SELECTOR, '[data-testid="all-products-category-select"]')
     MOUSE_TITLE = (By.XPATH, "//h2[@data-testid='all-products-header' and contains(., 'Mouse')]")
+    BUY_NOW = (By.CSS_SELECTOR, '[data-testid="buy-now-button"]')
+    CHECKOUT_FIRST_NAME = (By.CSS_SELECTOR, '[data-testid="checkout-first-name-input"]')
+    CHECKOUT_EMAIL = (By.CSS_SELECTOR, '[data-testid="checkout-email-input"]')
+    CHECKOUT_CITY = (By.CSS_SELECTOR, '[data-testid="checkout-city-input"]')
+    CHECKOUT_STATE = (By.CSS_SELECTOR, '[data-testid="checkout-state-input"]')
+    CHECKOUT_STREET_ADDRESS = (By.CSS_SELECTOR, '[data-testid="checkout-street-input"]')
+    CHECKOUT_ZIP_CODE = (By.CSS_SELECTOR, '[data-testid="checkout-zip-code-input"]')
+    CHECKOUT_COUNTRY = (By.CSS_SELECTOR, '[data-testid="checkout-country-input"]')
+    CHECKOUT_SAVE_ADDRESS_BUTTON = (By.CSS_SELECTOR, '[data-testid="checkout-save-address-button"]')
+    CHECKOUT_CLICK_NET_BANKING =(By.CSS_SELECTOR, '[data-testid="checkout-netbanking-button"]')
+    CHECKOUT_HDFC_BANK =  (By.CSS_SELECTOR, '[data-testid="checkout-netbanking-bank-logo-HDFC"]')
+    CHECKOUT_PLACE_ORDER = (By.CSS_SELECTOR, '[data-testid="checkout-place-order-button"]')
+
 
 
     def load(self):
@@ -85,8 +98,83 @@ class ProductPage(BasePage):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(self.MOUSE_TITLE)
         ).click()
+        
 
-    
+    def click_buy_now(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.BUY_NOW)
+        ).click()
+
+### this method will complete the checkout process 
+    def complete_checkout_process(self, firstname, email, city, state, street, zipcode, country ):
+        firstname_input = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.CHECKOUT_FIRST_NAME)
+        )
+        firstname_input.clear()
+        firstname_input.send_keys(firstname)
+
+
+        email_input = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.CHECKOUT_EMAIL)
+        )
+        email_input.clear()
+        email_input.send_keys(email)
+
+
+        city_input = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.CHECKOUT_CITY)
+        )
+        city_input.clear()
+        city_input.send_keys(city)
+
+
+        state_input = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.CHECKOUT_STATE)
+        )
+        state_input.clear()
+        state_input.send_keys(state)
+
+
+        street_address_input = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.CHECKOUT_STREET_ADDRESS)
+        )
+        street_address_input.clear()
+        street_address_input.send_keys(street)
+
+        zip_code_input = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.CHECKOUT_ZIP_CODE)
+        )
+        zip_code_input.clear()
+        zip_code_input.send_keys(zipcode)
+
+
+        country_input= WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.CHECKOUT_COUNTRY)
+        )
+        country_input.clear()
+        country_input.send_keys(country)
+
+
+        click_save_address = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.CHECKOUT_SAVE_ADDRESS_BUTTON)
+        )
+        click_save_address.click()
+
+        click_net_banking = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.CHECKOUT_CLICK_NET_BANKING)
+        )
+        click_net_banking.click()
+
+        click_hdfc_bank = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.CHECKOUT_HDFC_BANK)
+        )
+        click_hdfc_bank.click()
+
+        click_place_order = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.CHECKOUT_PLACE_ORDER)
+        )
+        click_place_order.click()
+
 
 
 
